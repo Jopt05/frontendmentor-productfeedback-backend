@@ -16,7 +16,13 @@ const feedbackIdGet = async(req, res = response ) => {
 
     const { id } = req.params;
 
-    const feedback = await Feedback.findById(id).populate('comments');
+    const feedback = await Feedback.findById(id)
+    .populate({
+        path: "comments",
+        populate: {
+            path: "responses"
+        }
+    });
 
     res.status(200).json({
         ok: true,
