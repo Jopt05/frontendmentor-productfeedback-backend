@@ -10,6 +10,7 @@ class Server {
         this.feedbacksRoutePath = '/api/feedback'
         this.commentsRoutePath = '/api/comment'
         this.responsesRoutePath = '/api/response'
+        this.usersRoutePath = '/api/auth'
         this.connectDb();
         this.middlewares();
         this.routes();
@@ -29,6 +30,7 @@ class Server {
         this.app.use(this.feedbacksRoutePath, require('../routes/feedback'));
         this.app.use(this.commentsRoutePath, require('../routes/comment'));
         this.app.use(this.responsesRoutePath, require('../routes/reponse'));
+        this.app.use(this.usersRoutePath, require('../routes/users'));
     }
 
     listen() {
