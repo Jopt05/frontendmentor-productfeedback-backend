@@ -37,7 +37,9 @@ const loginPost = async(req, res = response) => {
     return res.status(200).json({
         ok: true,
         token: token,
-        user
+        user_id: user._id,
+        username: user.username,
+        fullName: user.fullName
     });
     
 }
